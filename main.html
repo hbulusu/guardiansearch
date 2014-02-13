@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Search Results</title>
+	</head>
+	<body>
+		<h1>Results for {{ keyword }}</h1>
+		<p>Total number of results: {{ num_results }}</p>
+		<ul>
+		{% for search_result in search_results %}
+			<li>{{ search_result }}
+		{% endfor %}
+		</ul>
+		{% if page == 1 %}
+			<form method="get" action="/search"><input type="hidden" name="tag" value="{{ keyword }}"/><input type="hidden" name="page" value="{{ next_page }}" ><input type="submit" value="Next 50 results"/></form>
+		{% elif page != pages %}
+			{{ page }}
+			{{ pages }}
+			<form method="get" action="/search"><input type="hidden" name="tag" value="{{ keyword }}"/><input type="hidden" name="page" value="{{ prev_page }}" ><input type="submit" value="Previous 50 results"/></form>
+			<form method="get" action="/search"><input type="hidden" name="tag" value="{{ keyword }}"/><input type="hidden" name="page" value="{{ next_page }}" ><input type="submit" value="Next 50 results"/></form>
+		{% else %}
+			<form method="get" action="/search"><input type="hidden" name="tag" value="{{ keyword }}"/><input type="hidden" name="page" value="{{ prev_page }}" ><input type="submit" value="Previous 50 results"/></form>
+		{% endif %}
+	</body>
+</html>
