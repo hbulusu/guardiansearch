@@ -29,7 +29,8 @@ class TestHandler(webapp2.RequestHandler):
 
 class HomeHandler(webapp2.RequestHandler):
   def get(self):
-    self.response.write('<form method="get" action="/search"><input name="tag"/><input type="hidden" name="page" value=1><input type="submit"/></form>')
+    #self.response.write('<form method="get" action="/search"><input name="tag"/><input type="hidden" name="page" value=1><input type="submit"/></form>')
+    self.response.write(jinja_environment.get_template('home.html').render());
 
 class SearchHandler(webapp2.RequestHandler):
   def get(self):
