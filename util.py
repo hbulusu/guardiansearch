@@ -7,6 +7,9 @@ Created by Harshini on 2013-03-17.
 Copyright (c) 2013 Challa. All rights reserved.
 """
 
+#This program creates the call to the Guardian API for a given tag. By default the first time the page number is 1
+#from the HTML (home.html)
+
 import sys
 import os
 import google.appengine.api.urlfetch as urlfetch
